@@ -22,17 +22,17 @@ jobs:
       - name: Clone repo
         run: |
           git clone --depth 1 https://github.com/pranabdas/$REPO_NAME
-          cd $REPO_NAME
       - name: Update package-lock
+        working-directory: $REPO_NAME
         run: |
           npx npm-check-updates --target minor --upgrade
           rm package-lock.json
           npm install
 
       - name: Test build
+        working-directory: $REPO_NAME
         run: |
           npm run build
-          cd ..
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
