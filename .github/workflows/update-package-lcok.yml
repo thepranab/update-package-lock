@@ -1,0 +1,48 @@
+name: Update package-lock.json
+
+on:
+  schedule:
+    - cron: "0 8 * * 5"
+  push:
+    branches:
+      - main
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup node environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Clone repo
+        run: |
+          echo "REPO_NAME=arpespythontools" >> $GITHUB_ENV
+          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
+          cd ${REPONAME}
+      - name: Update package-lock
+        run: |
+          npx npm-check-updates --target minor --upgrade
+          rm package-lock.json
+          npm install
+
+      - name: Test build
+        run: |
+          npm run build
+          cd ..
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update package-lock.json
+          branch: update-package-lock
+          delete-branch: true
+          title: 'Update package-lock.json(${REPO_NAME})'
+          body: |
+            Auto-generated pull request to update package-lock.json
+          labels: |
+            automated pr
+          draft: false
