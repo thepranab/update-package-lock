@@ -29,10 +29,8 @@ jobs:
           rm package-lock.json
           npm install
 
-      - name: Test build
-        working-directory: arpespythontools
+      - name: Copy package-lock.json
         run: |
-          npm run build
           cp arpespythontools/package-lock.json .
           rm -rf arpespythontools
 
