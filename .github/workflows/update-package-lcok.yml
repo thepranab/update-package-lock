@@ -33,6 +33,8 @@ jobs:
         working-directory: arpespythontools
         run: |
           npm run build
+          cp arpespythontools/package-lock.json .
+          rm -rf arpespythontools
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
