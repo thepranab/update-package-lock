@@ -6,9 +6,7 @@ on:
   push:
     branches:
       - main
-# env:
-#   REPO_NAME: arpespythontools
-
+      
 jobs:
   create-pr:
     runs-on: ubuntu-20.04
@@ -20,9 +18,149 @@ jobs:
         with:
           node-version: '16'
           
+      - name: Update arpes-manual
+        run: |
+          REPO_NAME="arpes-manual"
+          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
+          cd ${REPO_NAME}
+          npx npm-check-updates --target minor --upgrade
+          rm package-lock.json
+          npm install
+          npm run build
+          cp package-lock.json ../${REPO_NAME}-package-lock.json
+          cp package.json ../${REPO_NAME}-package.json
+          cd ..
+          rm -rf ${REPO_NAME}
+          
       - name: Update arpespythontools
         run: |
           REPO_NAME="arpespythontools"
+          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
+          cd ${REPO_NAME}
+          npx npm-check-updates --target minor --upgrade
+          rm package-lock.json
+          npm install
+          npm run build
+          cp package-lock.json ../${REPO_NAME}-package-lock.json
+          cp package.json ../${REPO_NAME}-package.json
+          cd ..
+          rm -rf ${REPO_NAME}
+          
+      - name: Update condmat-notes
+        run: |
+          REPO_NAME="condmat-notes"
+          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
+          cd ${REPO_NAME}
+          npx npm-check-updates --target minor --upgrade
+          rm package-lock.json
+          npm install
+          npm run build
+          cp package-lock.json ../${REPO_NAME}-package-lock.json
+          cp package.json ../${REPO_NAME}-package.json
+          cd ..
+          rm -rf ${REPO_NAME}
+          
+      - name: Update espresso
+        run: |
+          REPO_NAME="espresso"
+          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
+          cd ${REPO_NAME}
+          npx npm-check-updates --target minor --upgrade
+          rm package-lock.json
+          npm install
+          npm run build
+          cp package-lock.json ../${REPO_NAME}-package-lock.json
+          cp package.json ../${REPO_NAME}-package.json
+          cd ..
+          rm -rf ${REPO_NAME}
+          
+      - name: Update fortran
+        run: |
+          REPO_NAME="fortran"
+          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
+          cd ${REPO_NAME}
+          npx npm-check-updates --target minor --upgrade
+          rm package-lock.json
+          npm install
+          npm run build
+          cp package-lock.json ../${REPO_NAME}-package-lock.json
+          cp package.json ../${REPO_NAME}-package.json
+          cd ..
+          rm -rf ${REPO_NAME}
+          
+      - name: Update javascript
+        run: |
+          REPO_NAME="javascript"
+          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
+          cd ${REPO_NAME}
+          npx npm-check-updates --target minor --upgrade
+          rm package-lock.json
+          npm install
+          npm run build
+          cp package-lock.json ../${REPO_NAME}-package-lock.json
+          cp package.json ../${REPO_NAME}-package.json
+          cd ..
+          rm -rf ${REPO_NAME}
+          
+      - name: Update linux
+        run: |
+          REPO_NAME="linux"
+          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
+          cd ${REPO_NAME}
+          npx npm-check-updates --target minor --upgrade
+          rm package-lock.json
+          npm install
+          npm run build
+          cp package-lock.json ../${REPO_NAME}-package-lock.json
+          cp package.json ../${REPO_NAME}-package.json
+          cd ..
+          rm -rf ${REPO_NAME}
+          
+      - name: Update machine-learning
+        run: |
+          REPO_NAME="machine-learning"
+          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
+          cd ${REPO_NAME}
+          npx npm-check-updates --target minor --upgrade
+          rm package-lock.json
+          npm install
+          npm run build
+          cp package-lock.json ../${REPO_NAME}-package-lock.json
+          cp package.json ../${REPO_NAME}-package.json
+          cd ..
+          rm -rf ${REPO_NAME}
+          
+      - name: Update openmx
+        run: |
+          REPO_NAME="openmx"
+          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
+          cd ${REPO_NAME}
+          npx npm-check-updates --target minor --upgrade
+          rm package-lock.json
+          npm install
+          npm run build
+          cp package-lock.json ../${REPO_NAME}-package-lock.json
+          cp package.json ../${REPO_NAME}-package.json
+          cd ..
+          rm -rf ${REPO_NAME}
+          
+      - name: Update python-tutorial
+        run: |
+          REPO_NAME="python-tutorial"
+          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
+          cd ${REPO_NAME}
+          npx npm-check-updates --target minor --upgrade
+          rm package-lock.json
+          npm install
+          npm run build
+          cp package-lock.json ../${REPO_NAME}-package-lock.json
+          cp package.json ../${REPO_NAME}-package.json
+          cd ..
+          rm -rf ${REPO_NAME}
+          
+      - name: Update suvtools
+        run: |
+          REPO_NAME="suvtools"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
           npx npm-check-updates --target minor --upgrade
