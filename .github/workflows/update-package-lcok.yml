@@ -23,25 +23,25 @@ jobs:
       - name: Update arpespythontools
         run: |
           REPO_NAME="arpespythontools"
-          git clone --depth 1 https://github.com/pranabdas/$REPO_NAME
-          cd $REPO_NAME
+          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
+          cd ${REPO_NAME}
           npx npm-check-updates --target minor --upgrade
           rm package-lock.json
           npm install
           npm run build
-          cp package-lock.json ../$REPO_NAME-package-lock.json
-          cp package.json ../$REPO_NAME-package.json
+          cp package-lock.json ../${REPO_NAME}-package-lock.json
+          cp package.json ../${REPO_NAME}-package.json
           cd ..
-          rm -rf $REPO_NAME
+          rm -rf ${REPO_NAME}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update package-lock.json
-          branch: update-package-lock
+          branch: update-dependencies
           delete-branch: true
-          title: 'Update package-lock.json($REPO_NAME)'
+          title: 'Update dependencies'
           body: |
             Auto-generated pull request to update package-lock.json
           labels: |
