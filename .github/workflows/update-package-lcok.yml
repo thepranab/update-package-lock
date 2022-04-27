@@ -19,21 +19,27 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
+          
       - name: Clone repo
         run: |
-          git clone --depth 1 https://github.com/pranabdas/arpespythontools
+          REPO_NAME="arpespythontools"
+          git clone --depth 1 https://github.com/pranabdas/$REPO_NAME
       - name: Update package-lock
-        working-directory: arpespythontools
+        working-directory: $REPO_NAME
         run: |
           npx npm-check-updates --target minor --upgrade
           rm package-lock.json
           npm install
+          
+      - name: Check build
+        working-directory: $REPO_NAME
+        run: npm run build
 
       - name: Copy package-lock.json
         run: |
-          cp arpespythontools/package-lock.json ./arpespythontools-package-lock.json
-          cp arpespythontools/package.json ./arpespythontools-package.json
-          rm -rf arpespythontools
+          cp $REPO_NAME/package-lock.json ./$REPO_NAME-package-lock.json
+          cp $REPO_NAME/package.json ./$REPO_NAME-package.json
+          rm -rf $REPO_NAME
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
@@ -42,7 +48,7 @@ jobs:
           commit-message: Update package-lock.json
           branch: update-package-lock
           delete-branch: true
-          title: 'Update package-lock.json(arpespythontools)'
+          title: 'Update package-lock.json($REPO_NAME)'
           body: |
             Auto-generated pull request to update package-lock.json
           labels: |
