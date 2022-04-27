@@ -20,10 +20,11 @@ jobs:
         with:
           node-version: '16'
           
-      - name: Clone repo
+      - name: Update arpespythontools
         run: |
           REPO_NAME="arpespythontools"
           git clone --depth 1 https://github.com/pranabdas/$REPO_NAME
+          cd $REPO_NAME
           npx npm-check-updates --target minor --upgrade
           rm package-lock.json
           npm install
