@@ -24,20 +24,10 @@ jobs:
         run: |
           REPO_NAME="arpespythontools"
           git clone --depth 1 https://github.com/pranabdas/$REPO_NAME
-#       - name: Update package-lock
-#         working-directory: $REPO_NAME
-#         run: |
           npx npm-check-updates --target minor --upgrade
           rm package-lock.json
           npm install
-          
-#       - name: Check build
-#         working-directory: $REPO_NAME
-#         run: |
           npm run build
-
-#       - name: Copy package-lock.json
-#         run: |
           cp package-lock.json ../$REPO_NAME-package-lock.json
           cp package.json ../$REPO_NAME-package.json
           cd ..
