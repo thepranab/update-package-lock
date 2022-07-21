@@ -12,7 +12,7 @@ on:
 
 jobs:
   create-pr:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
 
@@ -26,6 +26,7 @@ jobs:
           REPO_NAME="arpes-manual"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npx --yes npm-check-updates --target minor --upgrade
           npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
@@ -40,6 +41,7 @@ jobs:
           REPO_NAME="arpespythontools"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npx --yes npm-check-updates --target minor --upgrade
           npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
@@ -54,6 +56,7 @@ jobs:
           REPO_NAME="condmat-notes"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npx --yes npm-check-updates --target minor --upgrade
           npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
@@ -68,6 +71,7 @@ jobs:
           REPO_NAME="espresso"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npx --yes npm-check-updates --target minor --upgrade
           npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
@@ -82,6 +86,7 @@ jobs:
           REPO_NAME="fortran"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npx --yes npm-check-updates --target minor --upgrade
           npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
@@ -96,6 +101,7 @@ jobs:
           REPO_NAME="javascript"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npx --yes npm-check-updates --target minor --upgrade
           npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
@@ -110,6 +116,7 @@ jobs:
           REPO_NAME="linux"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npx --yes npm-check-updates --target minor --upgrade
           npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
@@ -124,6 +131,7 @@ jobs:
           REPO_NAME="machine-learning"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npx --yes npm-check-updates --target minor --upgrade
           npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
@@ -138,6 +146,7 @@ jobs:
           REPO_NAME="openmx"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npx --yes npm-check-updates --target minor --upgrade
           npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
@@ -152,6 +161,7 @@ jobs:
           REPO_NAME="python-tutorial"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npx --yes npm-check-updates --target minor --upgrade
           npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
@@ -166,6 +176,7 @@ jobs:
           REPO_NAME="suvtools"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npx --yes npm-check-updates --target minor --upgrade
           npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
