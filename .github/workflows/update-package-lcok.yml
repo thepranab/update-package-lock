@@ -6,9 +6,6 @@ on:
   push:
     branches:
       - main
-# npx npm-check-updates --target minor --upgrade
-# npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
-# npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
 
 jobs:
   create-pr:
@@ -26,10 +23,11 @@ jobs:
           REPO_NAME="arpes-manual"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
           npx --yes npm-check-updates --target minor --upgrade
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
+          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           npm run build
           cp package-lock.json ../${REPO_NAME}-package-lock.json
           cp package.json ../${REPO_NAME}-package.json
@@ -41,10 +39,11 @@ jobs:
           REPO_NAME="arpespythontools"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
           npx --yes npm-check-updates --target minor --upgrade
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
+          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           npm run build
           cp package-lock.json ../${REPO_NAME}-package-lock.json
           cp package.json ../${REPO_NAME}-package.json
@@ -56,10 +55,11 @@ jobs:
           REPO_NAME="condmat-notes"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
           npx --yes npm-check-updates --target minor --upgrade
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
+          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           npm run build
           cp package-lock.json ../${REPO_NAME}-package-lock.json
           cp package.json ../${REPO_NAME}-package.json
@@ -71,10 +71,11 @@ jobs:
           REPO_NAME="espresso"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
           npx --yes npm-check-updates --target minor --upgrade
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
+          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           npm run build
           cp package-lock.json ../${REPO_NAME}-package-lock.json
           cp package.json ../${REPO_NAME}-package.json
@@ -86,10 +87,11 @@ jobs:
           REPO_NAME="fortran"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
           npx --yes npm-check-updates --target minor --upgrade
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
+          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           npm run build
           cp package-lock.json ../${REPO_NAME}-package-lock.json
           cp package.json ../${REPO_NAME}-package.json
@@ -101,10 +103,11 @@ jobs:
           REPO_NAME="javascript"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
           npx --yes npm-check-updates --target minor --upgrade
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
+          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           npm run build
           cp package-lock.json ../${REPO_NAME}-package-lock.json
           cp package.json ../${REPO_NAME}-package.json
@@ -116,10 +119,11 @@ jobs:
           REPO_NAME="linux"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
           npx --yes npm-check-updates --target minor --upgrade
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
+          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           npm run build
           cp package-lock.json ../${REPO_NAME}-package-lock.json
           cp package.json ../${REPO_NAME}-package.json
@@ -131,10 +135,11 @@ jobs:
           REPO_NAME="machine-learning"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
           npx --yes npm-check-updates --target minor --upgrade
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
+          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           npm run build
           cp package-lock.json ../${REPO_NAME}-package-lock.json
           cp package.json ../${REPO_NAME}-package.json
@@ -146,10 +151,11 @@ jobs:
           REPO_NAME="openmx"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
           npx --yes npm-check-updates --target minor --upgrade
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
+          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           npm run build
           cp package-lock.json ../${REPO_NAME}-package-lock.json
           cp package.json ../${REPO_NAME}-package.json
@@ -161,10 +167,11 @@ jobs:
           REPO_NAME="python-tutorial"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
           npx --yes npm-check-updates --target minor --upgrade
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
+          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           npm run build
           cp package-lock.json ../${REPO_NAME}-package-lock.json
           cp package.json ../${REPO_NAME}-package.json
@@ -176,10 +183,11 @@ jobs:
           REPO_NAME="suvtools"
           git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
           cd ${REPO_NAME}
+          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
           npx --yes npm-check-updates --target minor --upgrade
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           rm package-lock.json
           npm install
+          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
           npm run build
           cp package-lock.json ../${REPO_NAME}-package-lock.json
           cp package.json ../${REPO_NAME}-package.json
