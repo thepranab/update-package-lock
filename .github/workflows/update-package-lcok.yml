@@ -9,190 +9,44 @@ on:
 
 jobs:
   create-pr:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
       - name: Setup node environment
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
           
       - name: Update arpes-manual
         run: |
-          REPO_NAME="arpes-manual"
-          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
-          cd ${REPO_NAME}
-          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
-          npx --yes npm-check-updates --target minor --upgrade
-          rm package-lock.json
-          npm install
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
-          npm run build
-          cp package-lock.json ../${REPO_NAME}-package-lock.json
-          cp package.json ../${REPO_NAME}-package.json
-          cd ..
-          rm -rf ${REPO_NAME}
+          REPO_LIST=()
+          REPO_LIST+=(arpes-manual)
+          REPO_LIST+=(arpespythontools)
+          REPO_LIST+=(c-cpp)
+          REPO_LIST+=(condmat-notes)
+          REPO_LIST+=(espresso)
+          REPO_LIST+=(fortran)
+          REPO_LIST+=(javascript)
+          REPO_LIST+=(linux)
+          REPO_LIST+=(machine-learning)
+          REPO_LIST+=(openmx)
+          REPO_LIST+=(python-tutorial)
+          REPO_LIST+=(rust)
+          REPO_LIST+=(suvtools)
           
-      - name: Update arpespythontools
-        run: |
-          REPO_NAME="arpespythontools"
-          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
-          cd ${REPO_NAME}
-          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
-          npx --yes npm-check-updates --target minor --upgrade
-          rm package-lock.json
-          npm install
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
-          npm run build
-          cp package-lock.json ../${REPO_NAME}-package-lock.json
-          cp package.json ../${REPO_NAME}-package.json
-          cd ..
-          rm -rf ${REPO_NAME}
-          
-      - name: Update condmat-notes
-        run: |
-          REPO_NAME="condmat-notes"
-          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
-          cd ${REPO_NAME}
-          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
-          npx --yes npm-check-updates --target minor --upgrade
-          rm package-lock.json
-          npm install
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
-          npm run build
-          cp package-lock.json ../${REPO_NAME}-package-lock.json
-          cp package.json ../${REPO_NAME}-package.json
-          cd ..
-          rm -rf ${REPO_NAME}
-          
-      - name: Update espresso
-        run: |
-          REPO_NAME="espresso"
-          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
-          cd ${REPO_NAME}
-          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
-          npx --yes npm-check-updates --target minor --upgrade
-          rm package-lock.json
-          npm install
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
-          npm run build
-          cp package-lock.json ../${REPO_NAME}-package-lock.json
-          cp package.json ../${REPO_NAME}-package.json
-          cd ..
-          rm -rf ${REPO_NAME}
-          
-      - name: Update fortran
-        run: |
-          REPO_NAME="fortran"
-          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
-          cd ${REPO_NAME}
-          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
-          npx --yes npm-check-updates --target minor --upgrade
-          rm package-lock.json
-          npm install
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
-          npm run build
-          cp package-lock.json ../${REPO_NAME}-package-lock.json
-          cp package.json ../${REPO_NAME}-package.json
-          cd ..
-          rm -rf ${REPO_NAME}
-          
-      - name: Update javascript
-        run: |
-          REPO_NAME="javascript"
-          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
-          cd ${REPO_NAME}
-          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
-          npx --yes npm-check-updates --target minor --upgrade
-          rm package-lock.json
-          npm install
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
-          npm run build
-          cp package-lock.json ../${REPO_NAME}-package-lock.json
-          cp package.json ../${REPO_NAME}-package.json
-          cd ..
-          rm -rf ${REPO_NAME}
-          
-      - name: Update linux
-        run: |
-          REPO_NAME="linux"
-          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
-          cd ${REPO_NAME}
-          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
-          npx --yes npm-check-updates --target minor --upgrade
-          rm package-lock.json
-          npm install
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
-          npm run build
-          cp package-lock.json ../${REPO_NAME}-package-lock.json
-          cp package.json ../${REPO_NAME}-package.json
-          cd ..
-          rm -rf ${REPO_NAME}
-          
-      - name: Update machine-learning
-        run: |
-          REPO_NAME="machine-learning"
-          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
-          cd ${REPO_NAME}
-          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
-          npx --yes npm-check-updates --target minor --upgrade
-          rm package-lock.json
-          npm install
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
-          npm run build
-          cp package-lock.json ../${REPO_NAME}-package-lock.json
-          cp package.json ../${REPO_NAME}-package.json
-          cd ..
-          rm -rf ${REPO_NAME}
-          
-      - name: Update openmx
-        run: |
-          REPO_NAME="openmx"
-          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
-          cd ${REPO_NAME}
-          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
-          npx --yes npm-check-updates --target minor --upgrade
-          rm package-lock.json
-          npm install
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
-          npm run build
-          cp package-lock.json ../${REPO_NAME}-package-lock.json
-          cp package.json ../${REPO_NAME}-package.json
-          cd ..
-          rm -rf ${REPO_NAME}
-          
-      - name: Update python-tutorial
-        run: |
-          REPO_NAME="python-tutorial"
-          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
-          cd ${REPO_NAME}
-          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
-          npx --yes npm-check-updates --target minor --upgrade
-          rm package-lock.json
-          npm install
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
-          npm run build
-          cp package-lock.json ../${REPO_NAME}-package-lock.json
-          cp package.json ../${REPO_NAME}-package.json
-          cd ..
-          rm -rf ${REPO_NAME}
-          
-      - name: Update suvtools
-        run: |
-          REPO_NAME="suvtools"
-          git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
-          cd ${REPO_NAME}
-          npm i --save-exact @docusaurus/core@latest @docusaurus/preset-classic@latest
-          npx --yes npm-check-updates --target minor --upgrade
-          rm package-lock.json
-          npm install
-          npm i --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
-          npm run build
-          cp package-lock.json ../${REPO_NAME}-package-lock.json
-          cp package.json ../${REPO_NAME}-package.json
-          cd ..
-          rm -rf ${REPO_NAME}
+          for REPO_NAME in "${REPO_LIST[@]}"
+          do git clone --depth 1 https://github.com/pranabdas/${REPO_NAME}
+            cd ${REPO_NAME}
+            npx --yes npm-check-updates --target minor --upgrade
+            rm package-lock.json
+            npm install
+            npm run build
+            cp package.json ../${REPO_NAME}-package.json
+            cp package-lock.json ../${REPO_NAME}-package-lock.json
+            cd ..
+            rm -rf ${REPO_NAME}
+          done
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
