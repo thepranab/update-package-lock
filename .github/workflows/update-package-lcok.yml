@@ -8,7 +8,7 @@ on:
       - main
 
 jobs:
-  create-pr:
+  update-deps:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: '18'
           
-      - name: Update arpes-manual
+      - name: Update node deps
         run: |
           REPO_LIST=()
           REPO_LIST+=(arpes-manual)
