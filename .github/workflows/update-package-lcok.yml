@@ -23,7 +23,6 @@ jobs:
           REPO_LIST=()
           REPO_LIST+=(arpes-manual)
           REPO_LIST+=(arpespythontools)
-          REPO_LIST+=(c-cpp)
           REPO_LIST+=(condmat-notes)
           REPO_LIST+=(espresso)
           REPO_LIST+=(fortran)
@@ -41,12 +40,25 @@ jobs:
             npx --yes npm-check-updates --target minor --upgrade
             rm package-lock.json
             npm install
+            npm install --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary
             npm run build
             cp package.json ../${REPO_NAME}-package.json
             cp package-lock.json ../${REPO_NAME}-package-lock.json
             cd ..
             rm -rf ${REPO_NAME}
           done
+          
+          git clone --depth 1 https://github.com/pranabdas/c-cpp
+          cd c-cpp
+          npx --yes npm-check-updates --target minor --upgrade
+          rm package-lock.json
+          npm install
+          npm install --save-exact @docusaurus/core@canary @docusaurus/preset-classic@canary @docusaurus/theme-mermaid@canary
+          npm run build
+          cp package.json ../c-cpp-package.json
+          cp package-lock.json ../c-cpp-package-lock.json
+          cd ..
+          rm -rf c-cpp
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
